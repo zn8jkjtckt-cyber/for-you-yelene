@@ -33,7 +33,6 @@ h1{ color:#e91e63; }
   margin:15px 0;
 }
 
-/* ===== SLIDER ===== */
 .slider{
   position: relative;
   width:100%;
@@ -72,11 +71,35 @@ h1{ color:#e91e63; }
 
   <p>Desde el <strong>17 de diciembre de 2024</strong></p>
 
-  <!-- SLIDER -->
   <div class="slider">
-    <img src="foto1.jpg" class="slide">
+    <img src="foto1.jpg" class="slide active">
     <img src="foto2.jpg" class="slide">
     <img src="foto3.jpg" class="slide">
   </div>
-</
+</div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const startDate = new Date(2024, 11, 17);
+  const today = new Date();
+  const diffTime = today.getTime() - startDate.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  document.getElementById("days").textContent = diffDays;
+
+  let index = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide(){
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
+    index = (index + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 3000);
+
+});
+</script>
+
+</body>
+</html>
