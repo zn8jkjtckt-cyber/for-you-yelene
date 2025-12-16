@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Ti ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+}
+.card{
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  max-width:420px;
+  width:90%;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+h1{ color:#e91e63; }
+.counter{
+  font-size:1.4em;
+  margin:20px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>💖 Para ti 💖</h1>
+  <p>Hice esta página solo para ti.</p>
+
+  <div class="counter">
+    Llevamos <strong><span id="days">0</span> días</strong> juntos ❤️
+  </div>
+
+  <p>Desde el <strong>17 de diciembre de 2024</strong></p>
+</div>
+
+<script>
+const startDate = new Date("2024-12-17T00:00:00");
+const today = new Date();
+const diffTime = today - startDate;
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+document.getElementById("days").textContent = diffDays;
+</script>
+
+</body>
+</html>
